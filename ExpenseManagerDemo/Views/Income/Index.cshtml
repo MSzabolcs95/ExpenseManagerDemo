@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ExpenseManagerDemo.Models.IncomeViewModel>
+
+@{
+    ViewBag.Title = "Incomes";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add Income", "AddIncome")
+</p>
+@using (Html.BeginForm("Index", "Income"))
+{
+
+    <input id='from' value="@ViewBag.DateFrom" name='dateFrom' />
+    <input id='to' value="@ViewBag.DateTo" name='dateTo' />
+    <input type='submit' value='Set Range' />
+
+   @Html.DropDownList("categoryId",
+                        new SelectList(ExpenseManagerDataAccesLibrary.Repositories.IncomeRepository.Categories, "Id", "CategoryName"), new { onchange = "this.form.submit();" });
+}
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Value", "Index", new { sort = ViewBag.Sort})
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditIncome", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            <script>
+
+                $(function () {
+                    $("#from").datepicker({
+                        changeMonth: true,
+                        numberOfMonths: 1,
+                        
+                    });
+                    $("#to").datepicker({
+                        changeMonth: true,
+                        numberOfMonths: 1,
+                        
+                    });
+                });
+</script>
