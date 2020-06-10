@@ -8,12 +8,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExpenseManagerDataAccesLibrary.Interfaces;
 
 namespace ExpenseManagerDemo.Controllers
 {
     public class IncomeController : Controller
     {
-        private readonly IncomeRepository incomeRepository = new IncomeRepository();
+        private readonly IIncomeRepository incomeRepository = new IncomeRepository();
 
         // GET: Income
         [Authorize]

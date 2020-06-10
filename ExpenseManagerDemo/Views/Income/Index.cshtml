@@ -17,7 +17,7 @@
     <input type='submit' value='Set Range' />
 
    @Html.DropDownList("categoryId",
-                        new SelectList(ExpenseManagerDataAccesLibrary.Repositories.IncomeRepository.Categories, "Id", "CategoryName"), new { onchange = "this.form.submit();" });
+                        new SelectList(ExpenseManagerDataAccesLibrary.Repositories.IncomeRepository.Categories, "Id", "CategoryName"),"Category", new { onchange = "this.form.submit();" });
 }
 
             <table class="table">

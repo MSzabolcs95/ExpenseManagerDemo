@@ -12,6 +12,8 @@ namespace ExpenseManagerDataAccesLibrary.Interfaces
         IEnumerable<Expenses> GetAllExpensesByUser(string userId, DateTime? dateFrom, DateTime? dateTo, int? categoryId, string sort);
         void UpdateExpense(Expenses expenses);
         void AddExpense(Expenses expenses);
+        Expenses GetExpenseById(int id);
+        string GetCategoryNameById(int id);
         void RemoveExpense(int id);
         void AddExpenseCategory(ExpenseCategories expenseCategories);
 

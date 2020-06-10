@@ -14,7 +14,7 @@ namespace ExpenseManagerDemo.Controllers
 {
     public class ExpenseController : Controller
     {
-        private readonly ExpenseRepository expenseRepository = new ExpenseRepository();
+        private readonly IExpenseRepository expenseRepository = new ExpenseRepository();
 
         // GET: Expense
         [Authorize]

@@ -11,6 +11,9 @@ namespace ExpenseManagerDataAccesLibrary.Interfaces
     {
         IEnumerable<Incomes> GetAllIncomesByUser(string userId, DateTime? dateFrom, DateTime? dateTo, int? categoryId, string sort);
         void UpdateIncome(Incomes incomes);
+        string GetCategoryNameById(int id);
+        Incomes GetIncomeById(int id);
+        void AddIncomeCategory(IncomeCategories incomeCategories);
         void AddIncome(Incomes incomes);
         void RemoveIncome(int id);
     }
